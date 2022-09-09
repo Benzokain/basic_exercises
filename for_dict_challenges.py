@@ -8,6 +8,9 @@ def dict_to_most_list(dict):
     most_names = Counter(some_list)
     return most_names
 
+def get_gender(name, is_male):
+    return ('девочка','мальчик')[is_male[name]]
+
 def get_count_of_gender(dict:list, is_male:dict)->dict: # подаем school['students']
     list_of_gender = []
     list_of_names = []
@@ -15,7 +18,8 @@ def get_count_of_gender(dict:list, is_male:dict)->dict: # подаем school['s
         for name in element.get('students'):
             list_of_names.append(name.get('first_name'))
         # some_list.append(element['students'])
-        list_of_gender.append(get_gender(list_of_names, is_male))
+            for _name in list_of_names:
+                list_of_gender.append(get_gender(_name, is_male))
     most_gender = Counter(list_of_gender)
     # most_names = Counter(some_list)
     return most_gender
@@ -120,7 +124,7 @@ def main():
         for name in _class.get('students'):
             print(name.get('first_name'))
 
-    print(get_count_of_gender(test, is_male))
+    print(get_count_of_gender(school, is_male))
 
     # for index, _class in enumerate(school, start=0):
     #     print('Класс ',_class.get('class'),':','девочки', _class.get('students')[index].get('first_name'))
