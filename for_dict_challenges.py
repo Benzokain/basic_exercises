@@ -87,16 +87,15 @@ def main():
         'Даша': False,
     }
 
-    print('*'*20)
-   
-    gender_list = []
+    print('*'*20)    
     for _class in school:
+        gender_list = []
         print(f'Класс {_class.get("class")}: ', end='')
         for name in _class.get('students'):
             gender_list.append(get_gender(name.get('first_name'),is_male, plural='yes'))
         else:
             print(f'девочки {gender_list.count("девочки")}, мальчики {gender_list.count("мальчики")}')
-
+    print('*'*20)
         
 
     # Задание 5
@@ -115,7 +114,24 @@ def main():
         'Олег': True,
         'Миша': True,
     }
-    # ???
+ 
+    for _class in school:
+        gender_list = []
+        result_dict = {}
+        for name in _class.get('students'):
+            gender_list.append(get_gender(name.get('first_name'), is_male, plural='yes'))
+        else:
+            result_dict.setdefault(_class.get("class"), dict(девочки = gender_list.count("девочки"), мальчики=gender_list.count("мальчики")))
+            print(result_dict)
+            # for valut in result_dict:
+            #         print(valut)
+    print(type(result_dict.get('2a'))) # <class 'NoneType'> ?
+
+
+
+
+    # for key, value in result_dict.items():
+    #     if value['маль']
 
 if __name__ == "__main__":
     main()

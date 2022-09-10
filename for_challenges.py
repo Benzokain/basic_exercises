@@ -3,8 +3,11 @@
 
 from xml.dom.minidom import Element
 
-def get_gender(name, is_male):
-    return ('девочка','мальчик')[is_male[name]]
+def get_gender(name, is_male, plural = 'no'):
+    if plural == 'no':
+        return ('девочка','мальчик')[is_male[name]]
+    elif plural == 'yes':
+        return ('девочки','мальчики')[is_male[name]]
 
 def main():
     names = ['Оля', 'Петя', 'Вася', 'Маша']
