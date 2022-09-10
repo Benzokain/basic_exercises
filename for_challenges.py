@@ -3,10 +3,10 @@
 
 from xml.dom.minidom import Element
 
-def get_gender(name, is_male, plural = 'no'):
-    if plural == 'no':
+def get_gender(name, is_male, plural = False):
+    if plural == False:
         return ('девочка','мальчик')[is_male[name]]
-    elif plural == 'yes':
+    elif plural == True:
         return ('девочки','мальчики')[is_male[name]]
 
 def main():

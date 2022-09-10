@@ -92,7 +92,7 @@ def main():
         gender_list = []
         print(f'Класс {_class.get("class")}: ', end='')
         for name in _class.get('students'):
-            gender_list.append(get_gender(name.get('first_name'),is_male, plural='yes'))
+            gender_list.append(get_gender(name.get('first_name'),is_male, plural=True))
         else:
             print(f'девочки {gender_list.count("девочки")}, мальчики {gender_list.count("мальчики")}')
     print('*'*20)
