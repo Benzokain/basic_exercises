@@ -114,18 +114,26 @@ def main():
         'Олег': True,
         'Миша': True,
     }
- 
+    gender_list = []
+    result_dict = {}
+  
     for _class in school:
-        gender_list = []
-        result_dict = {}
         for name in _class.get('students'):
             gender_list.append(get_gender(name.get('first_name'), is_male, plural='yes'))
         else:
             result_dict.setdefault(_class.get("class"), dict(девочки = gender_list.count("девочки"), мальчики=gender_list.count("мальчики")))
-            print(result_dict)
-            # for valut in result_dict:
-            #         print(valut)
-    print(type(result_dict.get('2a'))) # <class 'NoneType'> ?
+            gender_list.clear()
+    print(result_dict)
+    # print(result_dict.get('2a')) # <class 'NoneType'> ?
+    if result_dict.get('2a').get('мальчики') > result_dict.get('3c').get('мальчики'):
+        print(f'Больше всего мальчиков в классе 2a')
+    else:
+        print(f'Больше всего мальчиков в классе 3c')
+
+    if result_dict.get('2a').get('девочки') > result_dict.get('3c').get('девочки'):
+        print(f'Больше всего девочек в классе 2a')
+    else:
+        print(f'Больше всего девочек в классе 3c')
 
 
 
