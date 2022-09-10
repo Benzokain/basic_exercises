@@ -119,7 +119,7 @@ def main():
   
     for _class in school:
         for name in _class.get('students'):
-            gender_list.append(get_gender(name.get('first_name'), is_male, plural='yes'))
+            gender_list.append(get_gender(name.get('first_name'), is_male, plural = True))
         else:
             result_dict.setdefault(_class.get("class"), dict(девочки = gender_list.count("девочки"), мальчики=gender_list.count("мальчики")))
             gender_list.clear()
